@@ -22,7 +22,12 @@ export default function Home() {
     const uploadedFile = e.target.files?.[0];
     if (uploadedFile) {
       setFile(uploadedFile);
-      setInput("Archivo cargado con éxito");
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const fileContent = event.target?.result as string;
+        setInput(fileContent);
+      };
+      reader.readAsText(uploadedFile);
     }
   };
 
@@ -41,10 +46,18 @@ export default function Home() {
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      setSolution(response.data.message || "Archivo subido exitosamente");
-    } catch (error) {
-      console.error("Error al enviar el archivo:", error);
-      setSolution("Error al procesar el archivo");
+      const minizincCode =
+        response.data.code || "No se recibió código del servidor.";
+      setSolution(minizincCode);
+
+      console.log("Código MiniZinc:", minizincCode);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      console.error(
+        "Error en la solicitud:",
+        error.response?.data?.detail || error.message
+      );
+      setSolution("Error al procesar el archivo.");
     }
   };
 
