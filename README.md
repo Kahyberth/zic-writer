@@ -154,32 +154,32 @@ Git: Necesitarás Git para clonar el repositorio de GitHub. Puedes instalarlo de
 
 ### Paso a paso para la instalación:
 1. Clonar el repositorio de GitHub
-Primero, necesitas clonar el repositorio donde se encuentra el proyecto ZincWriter. Abre una terminal o consola de comandos y ejecuta el siguiente comando:
+. Primero, necesitas clonar el repositorio donde se encuentra el proyecto ZincWriter. Abre una terminal o consola de comandos y ejecuta el siguiente comando:
 ```
 git clone git@github.com:Kahyberth/zinc-writer.git
 ```
 
 2. Acceder al directorio del proyecto
-Una vez que el repositorio se haya clonado correctamente, navega al directorio del proyecto:
+. Una vez que el repositorio se haya clonado correctamente, navega al directorio del proyecto:
 ```
 cd ZincWriter
 ```
 
 3. Instalar las dependencias
-El siguiente paso es instalar las dependencias necesarias para ejecutar la aplicación. El proyecto probablemente esté usando npm o yarn como gestor de paquetes. Si estás usando npm, ejecuta:
+. El siguiente paso es instalar las dependencias necesarias para ejecutar la aplicación. El proyecto probablemente esté usando npm o yarn como gestor de paquetes. Si estás usando npm, ejecuta:
 ```
 npm install
 ```
 
 4. Crea las variables de entorno
-Tienes que crear un archivo .env en el root del proyecto, esto con el fin de almacenar de manera "privada" el dominio o dirección del backend a donde se va a conectar.
+. Tienes que crear un archivo .env en el root del proyecto, esto con el fin de almacenar de manera "privada" el dominio o dirección del backend a donde se va a conectar.
 En este caso como se esta usando FastApi como backend, la dirección local de desarrollo no cambia a menos que se modifique desde el backend. Entonces crea el archivo .env y pega lo siguiente:
 ```
 NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
 ```
 
 5. Correr la aplicación
-Para ejecutar la aplicación simplemente ejecute el siguiente comando:
+. Para ejecutar la aplicación simplemente ejecute el siguiente comando:
 ```
 npm run dev
 ```
